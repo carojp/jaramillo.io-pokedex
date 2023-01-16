@@ -15,14 +15,14 @@ function App() {
     fetch(`https://pokeapi.co/api/v2/pokemon`)
       .then((resp) => resp.json())
       .then((data) => {
-        setCharacter(data);
+        setCharacter(data.results);
       });
   }, []);
 
   return (
     <div>
-      <p> Nombre: {character.results.name} </p>
-      <p> url: {character.results.url} </p>
+      <p> Nombre: {character.results[0].name} </p>
+      <p> url: {character.results[0].url} </p>
     </div>
   );
 }
