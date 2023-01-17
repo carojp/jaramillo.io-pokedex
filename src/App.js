@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import imagen from "./assets/animal-bishop-cartoon-svgrepo-com.svg";
 
 function App() {
-  const [character, setCharacter] = useState({
-    results: [
-      {
-        name: "",
-        url: "",
-      },
-    ],
-  });
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon`)
+    fetch("https://pokeapi.co/api/v2/pokemon")
       .then((resp) => resp.json())
       .then((data) => {
-        setCharacter(data.results);
+        setCharacters(data.results);
       });
   }, []);
 
   return (
-    <div>
-      <p> Nombre: {character.results[0].name} </p>
-      <p> url: {character.results[0].url} </p>
-    </div>
+    <section className="card-container">
+      {characters.map((character) => (
+        <div className="card">
+          <img className="imagen" src={imagen} alt="" />
+          <p className="nombre"> {character.name} </p>
+          <p className="url"> url: {character.url} </p>
+        </div>
+      ))}
+    </section>
   );
 }
 
