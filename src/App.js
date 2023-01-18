@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import imagen from "./assets/bulbasaur.png";
+import imagen from "./assets/Frame.png";
 
 function App() {
   const [characters, setCharacters] = useState([]);

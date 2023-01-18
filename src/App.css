@@ -15,7 +15,7 @@
   align-items: center;
   border: 2px solid #d2b4de;
   border-radius: 20px;
-  background-color: #b2babb;
+  background-color: #b8b8b8;
 }
 
 .card p:nth-child(1) {
@@ -23,29 +23,30 @@
 
 .id {
   position: absolute;
-  margin-left: 130px;
+  margin-top: 0;
+  margin-left: 160px;
   padding: 8px 4px;
-  font-size: small;
-  color: white;
-  background: #374151;
-  border-radius: 50%;
+  font-size: larger;
+  color: #b2babb;
 }
 
 .imagen {
-  object-fit: contain;
-  width: 200px;
-  height: 200px;
   background-color: white;
+  padding: 20px;
   border: none;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
 .nombre {
-  color: whitesmoke;
-  font-size: larger;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px 8px;
+  color: #ffffff;
+  font-size: x-large;
   text-transform: capitalize;
-  margin: 4px 0;
+  margin: 10px 0;
 }
 
 .url {
