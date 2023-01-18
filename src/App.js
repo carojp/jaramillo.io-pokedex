@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import imagen from "./assets/animal-bishop-cartoon-svgrepo-com.svg";
+import imagen from "./assets/bulbasaur.png";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -17,6 +17,7 @@ function App() {
     <section className="card-container">
       {characters.map((character) => (
         <div className="card">
+          <p className="id">#9999</p>
           <img className="imagen" src={imagen} alt="" />
           <p className="nombre"> {character.name} </p>
           <p className="url"> url: {character.url} </p>
