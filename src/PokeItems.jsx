@@ -4,6 +4,7 @@ import image from "./assets/Frame.png";
 
 function PokeItems({ name, url }) {
   const [pokemon, setPokemon] = useState({
+    
     id: "-",
     name: name,
     sprites: {
@@ -13,6 +14,13 @@ function PokeItems({ name, url }) {
         },
       },
     },
+    types: [
+      {
+        type: {
+          name: `wireframe`,
+        },
+      },
+    ],
   });
 
   useEffect(() => {
@@ -22,7 +30,7 @@ function PokeItems({ name, url }) {
   }, []);
 
   return (
-    <div className="card">
+    <div className={`card ${pokemon.types[0].type.name}`}>
       <p className="id">#{pokemon.id}</p>
       <img
         className="imagen"

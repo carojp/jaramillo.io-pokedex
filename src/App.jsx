@@ -10,3 +10,13 @@ function App() {
 }
 
 export default App;
+
+/* const App = createBrowserRouter([
+  {
+    path: "/",
+    element: <PokeList />,
+  },
+]);
+
+export default App;
+ */

@@ -14,11 +14,15 @@ function PokeList() {
   }, []);
 
   return (
-    <section className="card-container">
-      {pokemons.map((pokemon) => (
-        <PokeItems name={pokemon.name} url={pokemon.url} />
-      ))}
-    </section>
+    <>
+      <section className="card-container">
+        {pokemons.map((pokemon) => (
+          <PokeItems key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+        ))}
+      </section>
+      <button className="button-before">Before</button>
+      <button className="button-next">Next</button>
+    </>
   );
 }
 
