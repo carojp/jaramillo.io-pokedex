@@ -4,7 +4,6 @@ import image from "./assets/Frame.png";
 
 function PokeItems({ name, url }) {
   const [pokemon, setPokemon] = useState({
-    
     id: "-",
     name: name,
     sprites: {
