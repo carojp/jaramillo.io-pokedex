@@ -60,6 +60,34 @@ function CardInfo() {
             nostrum, maiores aspernatur numquam soluta voluptate corporis vel
             dolorem totam ex eum.
           </p>
+          <h2 className="title-base-stats">Base Stats</h2>
+          <div className="base-stats">
+            <ul className="name-stats-list">
+              <li>HP</li>
+              <li>ATK</li>
+              <li>DEF</li>
+              <li>SATK</li>
+              <li>SDEF</li>
+              <li>SPD</li>
+            </ul>
+            <hr />
+            <ul className="power-stats-list">
+              <li>045</li>
+              <li>049</li>
+              <li>049</li>
+              <li>065</li>
+              <li>065</li>
+              <li>045</li>
+            </ul>
+            <div className="power-bar">
+              <progress className="power-bar-hp" value="0.45"></progress>
+              <progress value="0.49"></progress>
+              <progress value="0.49"></progress>
+              <progress value="0.65"></progress>
+              <progress value="0.65"></progress>
+              <progress value="0.45"></progress>
+            </div>
+          </div>
         </div>
       </section>
     </section>
