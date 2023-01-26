@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/PokeItems.css";
-import image from "./assets/Frame.png";
+import imageGray from "./assets/Frame.png";
 
 function PokeItems({ name, url }) {
   const [pokemon, setPokemon] = useState({
@@ -9,7 +9,7 @@ function PokeItems({ name, url }) {
     sprites: {
       other: {
         "official-artwork": {
-          front_default: image,
+          front_default: imageGray,
         },
       },
     },
