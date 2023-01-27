@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PokeItems from "./PokeItems";
+import PokeItem from "./PokeItem";
 import "./styles/PokeList.css";
 
 function PokeList() {
@@ -19,7 +19,7 @@ function PokeList() {
     <>
       <section className="card-container">
         {pokemons.map((pokemon) => (
-          <PokeItems key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+          <PokeItem key={pokemon.name} name={pokemon.name} url={pokemon.url} />
         ))}
       </section>
       <button

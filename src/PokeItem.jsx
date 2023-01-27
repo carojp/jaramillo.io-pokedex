@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles/PokeItems.css";
 import imageGray from "./assets/Frame.png";
 
-function PokeItems({ name, url }) {
+function PokeItem({ name, url }) {
   const [pokemon, setPokemon] = useState({
     id: "-",
     name: name,
@@ -31,7 +31,7 @@ function PokeItems({ name, url }) {
   return (
     <div className={`card ${pokemon.types[0].type.name}`}>
       <p className="id">#{pokemon.id}</p>
-      <a href="http://localhost:3000/cardInfo">
+      <a href={`http://localhost:3000/cardInfo/${pokemon.id}`}>
         <img
           className="imagen"
           src={pokemon.sprites.other["official-artwork"].front_default}
@@ -44,4 +44,4 @@ function PokeItems({ name, url }) {
   );
 }
 
-export default PokeItems;
+export default PokeItem;

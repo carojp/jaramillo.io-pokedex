@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import arrowLeft from "./assets/arrow-left.png";
 import imageGray from "./assets/Frame.png";
 import imgmenor from "./assets/menor.png";
@@ -7,17 +9,35 @@ import height from "./assets/height.png";
 import pokeball from "./assets/Pokeball.png";
 import "./styles/CardInfo.css";
 
-function CardInfo() {
+function CardInfo(name, url) {
+  const { pokemon_id } = useParams();
+  const [infoCard, setInfoCard] = useState({
+    id: "-",
+    name: name,
+    sprites: {
+      other: {
+        "official-artwork": {
+          front_default: imageGray,
+        },
+      },
+    },
+  });
+
+  useEffect(() => {
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => setInfoCard(data));
+  }, []);
+
   return (
     <section className="card-info">
       <img className="image-pokeball" src={pokeball} alt="" />
       <img className="image-pokemon" src={imageGray} alt="" />
-
       <section className="card-info-uno">
         <div className="contents-name">
           <img className="arrow-left" src={arrowLeft} alt="" />
-          <h2 className="name-pokemon">Pokémon Name</h2>
-          <h3 className="id-pokemon">#999</h3>
+          <h2 className="name-pokemon">{[infoCard.name]} </h2>
+          <h3 className="id-pokemon"># {pokemon_id}</h3>
         </div>
         <div className="contents-image-pokemon">
           <img className="img-menor" src={imgmenor} alt="" />
