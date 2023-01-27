@@ -31,11 +31,14 @@ function PokeItems({ name, url }) {
   return (
     <div className={`card ${pokemon.types[0].type.name}`}>
       <p className="id">#{pokemon.id}</p>
-      <img
-        className="imagen"
-        src={pokemon.sprites.other["official-artwork"].front_default}
-        alt=""
-      />
+      <a href="http://localhost:3000/cardInfo">
+        <img
+          className="imagen"
+          src={pokemon.sprites.other["official-artwork"].front_default}
+          alt=""
+        />
+      </a>
+
       <p className="nombre"> {pokemon.name} </p>
     </div>
   );

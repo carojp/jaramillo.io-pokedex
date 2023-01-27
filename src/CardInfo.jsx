@@ -70,7 +70,7 @@ function CardInfo() {
               <li>SDEF</li>
               <li>SPD</li>
             </ul>
-            <hr />
+            <hr className="bar" />
             <ul className="power-stats-list">
               <li>045</li>
               <li>049</li>
