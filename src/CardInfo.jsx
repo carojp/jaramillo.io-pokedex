@@ -35,7 +35,8 @@ function CardInfo() {
         base_stat: 0,
       },
     ],
-    Weight: "9,9",
+    height: "9,9",
+    weight: "9,9",
   });
 
   useEffect(() => {
@@ -82,12 +83,12 @@ function CardInfo() {
           <div className="about-pokemon">
             <div className="about-weight">
               <img className="img-weight" src={weight} alt="" />
-              <p> {infoCard.Weight}kg</p>
+              <p> {infoCard.weight / 100}kg</p>
             </div>
             <hr />
             <div className="about-height">
               <img className="img-height" src={height} alt="" />
-              <p>9,9m</p>
+              <p>{(infoCard.height / 3.83).toFixed(2)} m</p>
             </div>
             <hr />
             <div className="about-ability">
