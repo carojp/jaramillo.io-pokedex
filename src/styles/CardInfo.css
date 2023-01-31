@@ -138,6 +138,7 @@ hr {
   align-items: center;
   flex-direction: column;
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 .about-ability p:nth-child(1),

@@ -23,6 +23,13 @@ function CardInfo() {
         },
       },
     },
+    abilities: [
+      {
+        ability: {
+          name: "",
+        },
+      },
+    ],
     types: [
       {
         type: {
@@ -92,7 +99,7 @@ function CardInfo() {
             </div>
             <hr />
             <div className="about-ability">
-              <p>Ability 1</p>
+              <p>{infoCard.abilities[0].ability.name} </p>
               <p>Ability 2</p>
             </div>
           </div>
