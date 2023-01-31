@@ -31,7 +31,6 @@
 }
 
 .name-pokemon {
-  text-align: center;
   text-transform: capitalize;
   width: 220px;
 }
@@ -52,6 +51,7 @@
 
 .img-menor,
 .img-mayor {
+  position: sticky;
   margin-top: 80px;
 }
 
@@ -76,17 +76,15 @@
   margin-top: 24px;
 }
 
-.type-uno,
-.type-dos {
+.types-pokemons {
   width: 46px;
-  height: 20px;
   text-align: center;
   margin: 0 8px;
-  border-radius: 10px;
+  border-radius: 15px;
   color: white;
   font-size: 10px;
-  line-height: 20px;
-  background-color: #666666;
+
+  text-transform: capitalize;
 }
 
 .about {
@@ -107,7 +105,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .img-weight {
@@ -125,24 +123,23 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
 }
 .img-height {
   height: 20px;
   margin: 0 8px;
 }
 
-.about-ability {
+.about-move {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 10px;
   text-transform: capitalize;
 }
 
-.about-ability p:nth-child(1),
-.about-ability p:nth-child(2) {
+.about-move-ability {
   margin: 2px 8px;
 }
 
@@ -167,7 +164,7 @@ hr {
 }
 
 .title-move {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .description-pokemon {

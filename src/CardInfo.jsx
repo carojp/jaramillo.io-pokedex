@@ -9,7 +9,6 @@ import height from "./assets/height.png";
 import pokeball from "./assets/Pokeball.png";
 import barra from "./assets/barra.png";
 import "./styles/CardInfo.css";
-import "./styles/type.css";
 
 function CardInfo() {
   const { pokemon_id } = useParams();
@@ -81,8 +80,11 @@ function CardInfo() {
       <section className="card-info-dos">
         <div className="info-pokemon">
           <div className="type-pokemon">
-            <p className="type-uno">{infoCard.types[0].type.name}</p>
-            <p className="type-dos">Type</p>
+            {infoCard.types.map((type) => (
+              <p className={`types-pokemons ${type.type.name}`}>
+                {type.type.name}
+              </p>
+            ))}
           </div>
           <div>
             <h2 className="about">About</h2>
@@ -98,9 +100,12 @@ function CardInfo() {
               <p>{(infoCard.height / 3.83).toFixed(2)} m</p>
             </div>
             <hr />
-            <div className="about-ability">
-              <p>{infoCard.abilities[0].ability.name} </p>
-              <p>Ability 2</p>
+            <div className="about-move">
+              {infoCard.abilities.map((move) => (
+                <p className={`about-move-ability ${move.ability.name}`}>
+                  {move.ability.name}
+                </p>
+              ))}
             </div>
           </div>
           <div className="about-title">
