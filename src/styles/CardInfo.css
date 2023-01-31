@@ -62,7 +62,7 @@
 
 .info-pokemon {
   padding-top: 40px;
-  height: 420px;
+  height: 416px;
   border-radius: 12px;
   display: flex;
   background-color: white;
@@ -181,6 +181,7 @@ hr {
   font-size: 14px;
   text-align: center;
   color: #b8b8b8;
+  margin-top: 0px;
 }
 
 .barra-base-stats {
