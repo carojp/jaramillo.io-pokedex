@@ -7,13 +7,15 @@ import imgmayor from "./assets/mayor.png";
 import weight from "./assets/weight.png";
 import height from "./assets/height.png";
 import pokeball from "./assets/Pokeball.png";
+import barra from "./assets/barra.png";
 import "./styles/CardInfo.css";
+import "./styles/type.css";
 
-function CardInfo(name, url) {
+function CardInfo() {
   const { pokemon_id } = useParams();
   const [infoCard, setInfoCard] = useState({
     id: "-",
-    name: name,
+    name: "",
     sprites: {
       other: {
         "official-artwork": {
@@ -21,33 +23,57 @@ function CardInfo(name, url) {
         },
       },
     },
+    types: [
+      {
+        type: {
+          name: `wireframe`,
+        },
+      },
+    ],
+    stats: [
+      {
+        base_stat: 0,
+      },
+    ],
+    Weight: "9,9",
   });
 
   useEffect(() => {
-    fetch(url)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_id}`)
       .then((resp) => resp.json())
       .then((data) => setInfoCard(data));
   }, []);
 
   return (
-    <section className="card-info">
+    <section className={`card-info ${infoCard.types[0].type.name}`}>
       <img className="image-pokeball" src={pokeball} alt="" />
-      <img className="image-pokemon" src={imageGray} alt="" />
+      <img
+        className="image-pokemon"
+        src={infoCard.sprites.other["official-artwork"].front_default}
+        alt=""
+      />
       <section className="card-info-uno">
         <div className="contents-name">
-          <img className="arrow-left" src={arrowLeft} alt="" />
-          <h2 className="name-pokemon">{[infoCard.name]} </h2>
+          <a href={`http://localhost:3000`}>
+            <img className="arrow-left" src={arrowLeft} alt="" />
+          </a>
+
+          <h2 className="name-pokemon">{infoCard.name} </h2>
           <h3 className="id-pokemon"># {pokemon_id}</h3>
         </div>
         <div className="contents-image-pokemon">
-          <img className="img-menor" src={imgmenor} alt="" />
-          <img className="img-mayor" src={imgmayor} alt="" />
+          <a href={`http://localhost:3000/cardInfo/${infoCard.id - 1}`}>
+            <img className="img-menor" src={imgmenor} alt="" />
+          </a>
+          <a href={`http://localhost:3000/cardInfo/${infoCard.id + 1}`}>
+            <img className="img-mayor" src={imgmayor} alt="" />
+          </a>
         </div>
       </section>
       <section className="card-info-dos">
         <div className="info-pokemon">
           <div className="type-pokemon">
-            <p className="type-uno">Type</p>
+            <p className="type-uno">{infoCard.types[0].type.name}</p>
             <p className="type-dos">Type</p>
           </div>
           <div>
@@ -56,7 +82,7 @@ function CardInfo(name, url) {
           <div className="about-pokemon">
             <div className="about-weight">
               <img className="img-weight" src={weight} alt="" />
-              <p>9,9kg</p>
+              <p> {infoCard.Weight}kg</p>
             </div>
             <hr />
             <div className="about-height">
@@ -81,32 +107,30 @@ function CardInfo(name, url) {
             dolorem totam ex eum.
           </p>
           <h2 className="title-base-stats">Base Stats</h2>
-          <div className="base-stats">
-            <ul className="name-stats-list">
-              <li>HP</li>
-              <li>ATK</li>
-              <li>DEF</li>
-              <li>SATK</li>
-              <li>SDEF</li>
-              <li>SPD</li>
-            </ul>
-            <hr className="bar" />
-            <ul className="power-stats-list">
-              <li>045</li>
-              <li>049</li>
-              <li>049</li>
-              <li>065</li>
-              <li>065</li>
-              <li>045</li>
-            </ul>
-            <div className="power-bar">
-              <progress className="power-bar-hp" value="0.45"></progress>
-              <progress value="0.49"></progress>
-              <progress value="0.49"></progress>
-              <progress value="0.65"></progress>
-              <progress value="0.65"></progress>
-              <progress value="0.45"></progress>
-            </div>
+          <div className="container-base-stats">
+            <img className="barra-base-stats" src={barra} alt="" />
+            <span className="base-stats">
+              <p className="base-stats-name">HP</p>
+              <p className="base-stats-number">045</p>
+              <meter className="base-stats-bar" max="100" value="45"></meter>
+              <p className="base-stats-name">ATK</p>
+              <p className="base-stats-number">049</p>
+              <meter className="base-stats-bar" max="100" value="49"></meter>
+              <p className="base-stats-name">DEF</p>
+              <p className="base-stats-number">049</p>
+              <meter className="base-stats-bar" max="100" value="49"></meter>
+              <p className="base-stats-name">SATK</p>
+              <p className="base-stats-number">065</p>
+              <meter className="base-stats-bar" max="100" value="65"></meter>
+              <p className="base-stats-name">SDEF</p>
+              <p className="base-stats-number">065</p>
+              <meter className="base-stats-bar" max="100" value="65"></meter>
+              <p className="base-stats-name">SPD</p>
+              <p className="base-stats-number">045</p>
+              <meter className="base-stats-bar" max="100" value="45"></meter>
+            </span>
+
+            <div className="power-bar"></div>
           </div>
         </div>
       </section>

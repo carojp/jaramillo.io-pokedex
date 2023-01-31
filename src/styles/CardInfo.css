@@ -2,12 +2,12 @@
   margin: 18px;
   width: 360px;
   height: 660px;
-  border: 2px solid #b8b8b8;
   border-radius: 12px;
-  background-color: #b8b8b8;
 }
 
 .image-pokemon {
+  width: 200px;
+  height: 200px;
   padding-top: 15px;
   margin-top: 50px;
   margin-left: 80px;
@@ -28,6 +28,12 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+}
+
+.name-pokemon {
+  text-align: center;
+  text-transform: capitalize;
+  width: 220px;
 }
 
 .arrow-left {
@@ -171,48 +177,40 @@ hr {
   font-size: 10px;
 }
 
-.base-stats {
-  display: flex;
-}
-
 .title-base-stats {
   font-size: 14px;
   text-align: center;
   color: #b8b8b8;
 }
 
-.name-stats-list {
-  list-style-type: none;
-  font-size: 10px;
+.barra-base-stats {
+  width: 1.3px;
+  margin-left: 50px;
+  position: absolute;
+}
+.base-stats {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.base-stats-name {
+  font-size: 12px;
   color: #b8b8b8;
+  margin: 0 0 6px 0;
 }
 
-.name-stats-list li:nth-child(n) {
-  margin-bottom: 6px;
-  text-align: end;
-}
-.bar {
+.base-stats-number {
+  font-size: 12px;
+  margin: 0 0 6px 0;
 }
 
-.power-stats-list {
-  list-style-type: none;
-  font-size: 10px;
-  color: #b8b8b8;
-  padding-left: 0;
+.base-stats-bar {
+  margin-right: 10px;
+  width: 240px;
+  margin: 0 0 6px 0;
 }
 
-.power-stats-list li:nth-child(n) {
-  margin-bottom: 6px;
-  text-align: justify;
-}
-
-.power-bar {
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 24px;
-  padding-top: 10px;
-}
-.power-bar progress:nth-child(n) {
-  margin-bottom: 4px;
+.base-stats-bar {
 }

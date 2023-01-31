@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/PokeItems.css";
+import "./styles/type.css";
 import imageGray from "./assets/Frame.png";
 
 function PokeItem({ name, url }) {

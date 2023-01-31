@@ -1,5 +1,7 @@
 body {
+  display: flex;
   font-family: "Poppins", sans-serif;
+  justify-content: space-around;
 }
 
 /*  font-size: 8px;
