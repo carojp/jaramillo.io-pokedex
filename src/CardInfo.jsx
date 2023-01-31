@@ -29,16 +29,19 @@ function CardInfo() {
         },
       },
     ],
+    stats: [
+      {
+        base_stat: 0,
+        stat: {
+          name: "",
+        },
+      },
+    ],
     types: [
       {
         type: {
           name: `wireframe`,
         },
-      },
-    ],
-    stats: [
-      {
-        base_stat: 0,
       },
     ],
     height: "9,9",
@@ -122,31 +125,46 @@ function CardInfo() {
           <h2 className="title-base-stats">Base Stats</h2>
           <div className="container-base-stats">
             <img className="barra-base-stats" src={barra} alt="" />
-            <span className="base-stats">
-              <p className="base-stats-name">HP</p>
-              <p className="base-stats-number">045</p>
-              <meter className="base-stats-bar" max="100" value="45"></meter>
-              <p className="base-stats-name">ATK</p>
-              <p className="base-stats-number">049</p>
-              <meter className="base-stats-bar" max="100" value="49"></meter>
-              <p className="base-stats-name">DEF</p>
-              <p className="base-stats-number">049</p>
-              <meter className="base-stats-bar" max="100" value="49"></meter>
-              <p className="base-stats-name">SATK</p>
-              <p className="base-stats-number">065</p>
-              <meter className="base-stats-bar" max="100" value="65"></meter>
-              <p className="base-stats-name">SDEF</p>
-              <p className="base-stats-number">065</p>
-              <meter className="base-stats-bar" max="100" value="65"></meter>
-              <p className="base-stats-name">SPD</p>
-              <p className="base-stats-number">045</p>
+            <span className="base-stats-name">
+              {infoCard.stats.map((stat) => (
+                <p className={`stats-name ${stat.stat.name}`}>
+                  {stat.stat.name}
+                </p>
+              ))}
+            </span>
+            <span className="base-stats-number">
+              {infoCard.stats.map((base) => (
+                <p className={`stats-number ${base.base_stat}`}>
+                  {(base.base_stat / 100).toFixed(2)}
+                </p>
+              ))}
+            </span>
+            <span className="power-bar">
+              {infoCard.stats.map((base) => (
+                <meter
+                  className={`base-stats-bar ${base.base_stat}`}
+                  max="2"
+                  value={(base.base_stat / 100).toFixed(2)}
+                ></meter>
+              ))}
+
               <meter className="base-stats-bar" max="100" value="45"></meter>
             </span>
-
-            <div className="power-bar"></div>
           </div>
         </div>
       </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
   );
 }
