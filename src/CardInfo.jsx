@@ -12,6 +12,7 @@ import "./styles/CardInfo.css";
 
 function CardInfo() {
   const { pokemon_id } = useParams();
+  const [description, setDescription] = useState("");
   const [infoCard, setInfoCard] = useState({
     id: "-",
     name: "",
@@ -54,6 +55,12 @@ function CardInfo() {
       .then((data) => setInfoCard(data));
   }, []);
 
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon_id}`)
+      .then((resp) => resp.json())
+      .then((data) => setDescription(data.flavor_text_entries[0].flavor_text));
+  }, []);
+
   return (
     <section className={`card-info ${infoCard.types[0].type.name}`}>
       <img className="image-pokeball" src={pokeball} alt="" />
@@ -84,13 +91,18 @@ function CardInfo() {
         <div className="info-pokemon">
           <div className="type-pokemon">
             {infoCard.types.map((type) => (
-              <p className={`types-pokemons ${type.type.name}`}>
+              <p
+                key={type.type.name}
+                className={`types-pokemons ${type.type.name}`}
+              >
                 {type.type.name}
               </p>
             ))}
           </div>
           <div>
-            <h2 className="about">About</h2>
+            <h2 className={`about text-color-${infoCard.types[0].type.name} `}>
+              About
+            </h2>
           </div>
           <div className="about-pokemon">
             <div className="about-weight">
@@ -105,7 +117,10 @@ function CardInfo() {
             <hr />
             <div className="about-move">
               {infoCard.abilities.map((move) => (
-                <p className={`about-move-ability ${move.ability.name}`}>
+                <p
+                  key={move.ability.name}
+                  className={`about-move-ability ${move.ability.name}`}
+                >
                   {move.ability.name}
                 </p>
               ))}
@@ -116,55 +131,47 @@ function CardInfo() {
             <p className="title-height">Height</p>
             <p className="title-move">Moves</p>
           </div>
-          <p className="description-pokemon">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius beatae
-            repellendus debitis, quo quidem animi! Similique debitis nemo
-            nostrum, maiores aspernatur numquam soluta voluptate corporis vel
-            dolorem totam ex eum.
-          </p>
-          <h2 className="title-base-stats">Base Stats</h2>
+          <p className="description-pokemon">{description}</p>
+          <h2
+            className={`title-base-stats text-color-${infoCard.types[0].type.name} `}
+          >
+            Base Stats
+          </h2>
           <div className="container-base-stats">
             <img className="barra-base-stats" src={barra} alt="" />
-            <span className="base-stats-name">
+            <span className={`base-stats-name  `}>
               {infoCard.stats.map((stat) => (
-                <p className={`stats-name ${stat.stat.name}`}>
+                <p
+                  key={stat.stat.name}
+                  className={`stats-name ${stat.stat.name} text-color-${infoCard.types[0].type.name}`}
+                >
                   {stat.stat.name}
                 </p>
               ))}
             </span>
             <span className="base-stats-number">
-              {infoCard.stats.map((base) => (
-                <p className={`stats-number ${base.base_stat}`}>
-                  {(base.base_stat / 100).toFixed(2)}
+              {infoCard.stats.map((stat) => (
+                <p
+                  key={stat.stat.name}
+                  className={`stats-number ${stat.base_stat}`}
+                >
+                  {(stat.base_stat / 100).toFixed(2)}
                 </p>
               ))}
             </span>
             <span className="power-bar">
-              {infoCard.stats.map((base) => (
+              {infoCard.stats.map((stat) => (
                 <meter
-                  className={`base-stats-bar ${base.base_stat}`}
+                  key={stat.stat.name}
+                  className={`base-stats-bar ${stat.base_stat}`}
                   max="2"
-                  value={(base.base_stat / 100).toFixed(2)}
+                  value={(stat.base_stat / 100).toFixed(2)}
                 ></meter>
               ))}
-
-              <meter className="base-stats-bar" max="100" value="45"></meter>
             </span>
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </section>
   );
 }

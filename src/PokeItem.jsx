@@ -30,7 +30,9 @@ function PokeItem({ name, url }) {
 
   return (
     <div className={`card ${pokemon.types[0].type.name}`}>
-      <p className="id">#{pokemon.id}</p>
+      <p className={`id text-color-${pokemon.types[0].type.name} `}>
+        #{pokemon.id}
+      </p>
       <a href={`http://localhost:3000/cardInfo/${pokemon.id}`}>
         <img
           className="imagen"
