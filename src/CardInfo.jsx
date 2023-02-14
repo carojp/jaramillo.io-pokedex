@@ -45,8 +45,8 @@ function CardInfo() {
         },
       },
     ],
-    height: "9,9",
-    weight: "9,9",
+    height: "-",
+    weight: "-",
   });
 
   useEffect(() => {

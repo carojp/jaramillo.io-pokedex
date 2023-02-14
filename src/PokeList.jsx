@@ -4,8 +4,8 @@ import "./styles/PokeList.css";
 
 function PokeList() {
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(20);
   const [pokemons, setPokemons] = useState([]);
+  const limit = 20;
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
