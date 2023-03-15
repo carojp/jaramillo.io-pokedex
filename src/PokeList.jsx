@@ -3,8 +3,8 @@ import PokeItem from "./PokeItem";
 import "./styles/PokeList.css";
 
 function PokeList() {
-  const [offset, setOffset] = useState(0);
   const [pokemons, setPokemons] = useState([]);
+  const [offset, setOffset] = useState(0);
   const limit = 20;
 
   useEffect(() => {
