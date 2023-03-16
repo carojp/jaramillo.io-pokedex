@@ -8,11 +8,11 @@ import CardInfo from "./CardInfo";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/pokedex",
     element: <App />,
   },
   {
-    path: "/cardInfo/:pokemon_id",
+    path: "/pokedex/cardInfo/:pokemon_id",
     element: <CardInfo />,
   },
 ]);

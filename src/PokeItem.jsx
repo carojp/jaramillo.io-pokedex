@@ -33,7 +33,7 @@ function PokeItem({ name, url }) {
       <p className={`id text-color-${pokemon.types[0].type.name} `}>
         #{pokemon.id}
       </p>
-      <a href={`http://localhost:3000/cardInfo/${pokemon.id}`}>
+      <a href={`http://localhost:3000/pokedex/cardInfo/${pokemon.id}`}>
         <img
           className="imagen"
           src={pokemon.sprites.other["official-artwork"].front_default}
