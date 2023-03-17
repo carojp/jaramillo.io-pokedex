@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
 import "./styles/type.css";
 import App from "./App";
 import CardInfo from "./CardInfo";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/pokedex",
+    path: "/",
     element: <App />,
   },
   {
-    path: "/pokedex/cardInfo/:pokemon_id",
+    path: "/cardInfo/:pokemon_id",
     element: <CardInfo />,
   },
 ]);

@@ -79,10 +79,10 @@ function CardInfo() {
           <h3 className="id-pokemon"># {pokemon_id}</h3>
         </div>
         <div className="contents-image-pokemon">
-          <a href={`http://localhost:3000/cardInfo/${infoCard.id - 1}`}>
+          <a href={`/pokedex/#/cardInfo/${infoCard.id - 1}`}>
             <img className="img-menor" src={imgmenor} alt="" />
           </a>
-          <a href={`http://localhost:3000/cardInfo/${infoCard.id + 1}`}>
+          <a href={`/pokedex/#/cardInfo/${infoCard.id + 1}`}>
             <img className="img-mayor" src={imgmayor} alt="" />
           </a>
         </div>

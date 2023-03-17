@@ -31,7 +31,7 @@ function PokeList() {
           }
         }}
       >
-        Before
+        Prev
       </button>
       <button className="button-next" onClick={() => setOffset(offset + limit)}>
         Next
