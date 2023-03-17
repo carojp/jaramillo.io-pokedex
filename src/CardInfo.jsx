@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import arrowLeft from "./assets/arrow-left.png";
 import imageGray from "./assets/Frame.png";
 import imgmenor from "./assets/menor.png";
@@ -71,20 +72,20 @@ function CardInfo() {
       />
       <section className="card-info-uno">
         <div className="contents-name">
-          <a href={`http://localhost:3000`}>
+          <NavLink to={`/pokedex`}>
             <img className="arrow-left" src={arrowLeft} alt="" />
-          </a>
+          </NavLink>
 
           <h2 className="name-pokemon">{infoCard.name} </h2>
           <h3 className="id-pokemon"># {pokemon_id}</h3>
         </div>
         <div className="contents-image-pokemon">
-          <a href={`/pokedex/#/cardInfo/${infoCard.id - 1}`}>
+          <NavLink to={`/pokedex/cardInfo/${infoCard.id - 1}`}>
             <img className="img-menor" src={imgmenor} alt="" />
-          </a>
-          <a href={`/pokedex/#/cardInfo/${infoCard.id + 1}`}>
+          </NavLink>
+          <NavLink to={`/pokedex/cardInfo/${infoCard.id + 1}`}>
             <img className="img-mayor" src={imgmayor} alt="" />
-          </a>
+          </NavLink>
         </div>
       </section>
       <section className="card-info-dos">

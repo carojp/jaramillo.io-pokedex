@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./styles/PokeItems.css";
 import imageGray from "./assets/Frame.png";
 
@@ -33,13 +34,13 @@ function PokeItem({ name, url }) {
       <p className={`id text-color-${pokemon.types[0].type.name} `}>
         #{pokemon.id}
       </p>
-      <a href={`/pokedex/#/cardInfo/${pokemon.id}`}>
+      <NavLink to={`/pokedex/cardInfo/${pokemon.id}`}>
         <img
           className="imagen"
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt=""
         />
-      </a>
+      </NavLink>
 
       <p className="nombre"> {pokemon.name} </p>
     </div>
