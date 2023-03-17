@@ -34,7 +34,7 @@ function PokeItem({ name, url }) {
       <p className={`id text-color-${pokemon.types[0].type.name} `}>
         #{pokemon.id}
       </p>
-      <NavLink to={`/pokedex/cardInfo/${pokemon.id}`}>
+      <NavLink to={`/cardInfo/${pokemon.id}`}>
         <img
           className="imagen"
           src={pokemon.sprites.other["official-artwork"].front_default}

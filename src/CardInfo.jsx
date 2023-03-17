@@ -13,9 +13,10 @@ import "./styles/CardInfo.css";
 
 function CardInfo() {
   const { pokemon_id } = useParams();
+  // const { id, setId } = useState("id");
   const [description, setDescription] = useState("");
   const [infoCard, setInfoCard] = useState({
-    id: "-",
+    id: "",
     name: "",
     sprites: {
       other: {
@@ -54,13 +55,13 @@ function CardInfo() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_id}`)
       .then((resp) => resp.json())
       .then((data) => setInfoCard(data));
-  }, []);
+  }, [pokemon_id]);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon_id}`)
       .then((resp) => resp.json())
       .then((data) => setDescription(data.flavor_text_entries[0].flavor_text));
-  }, []);
+  }, [pokemon_id]);
 
   return (
     <section className={`card-info ${infoCard.types[0].type.name}`}>
@@ -72,7 +73,7 @@ function CardInfo() {
       />
       <section className="card-info-uno">
         <div className="contents-name">
-          <NavLink to={`/pokedex`}>
+          <NavLink to={`/`}>
             <img className="arrow-left" src={arrowLeft} alt="" />
           </NavLink>
 
@@ -80,10 +81,10 @@ function CardInfo() {
           <h3 className="id-pokemon"># {pokemon_id}</h3>
         </div>
         <div className="contents-image-pokemon">
-          <NavLink to={`/pokedex/cardInfo/${infoCard.id - 1}`}>
+          <NavLink to={`/cardInfo/${infoCard.id - 1}`}>
             <img className="img-menor" src={imgmenor} alt="" />
           </NavLink>
-          <NavLink to={`/pokedex/cardInfo/${infoCard.id + 1}`}>
+          <NavLink to={`/cardInfo/${infoCard.id + 1}`}>
             <img className="img-mayor" src={imgmayor} alt="" />
           </NavLink>
         </div>
