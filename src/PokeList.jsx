@@ -5,6 +5,7 @@ import "./styles/PokeList.css";
 function PokeList() {
   const [pokemons, setPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [page, setPage] = useState(1);
   const limit = 20;
 
   useEffect(() => {
@@ -22,20 +23,30 @@ function PokeList() {
           <PokeItem key={pokemon.name} name={pokemon.name} url={pokemon.url} />
         ))}
       </section>
-      <button
-        className="button-before"
-        disabled={!offset > 0}
-        onClick={() => {
-          if (offset > 0) {
-            setOffset(offset - limit);
-          }
-        }}
-      >
-        Prev
-      </button>
-      <button className="button-next" onClick={() => setOffset(offset + limit)}>
-        Next
-      </button>
+      <section className="button">
+        <button
+          className="button-prev"
+          disabled={!offset > 0}
+          onClick={() => {
+            if (offset > 0) {
+              setOffset(offset - limit);
+              setPage(page - 1);
+            }
+          }}
+        >
+          Prev
+        </button>
+        <p>{page}</p>
+        <button
+          className="button-next"
+          onClick={() => {
+            setOffset(offset + limit);
+            setPage(page + 1);
+          }}
+        >
+          Next
+        </button>
+      </section>
     </>
   );
 }

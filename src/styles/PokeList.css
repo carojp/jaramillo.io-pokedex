@@ -7,7 +7,13 @@
   flex-wrap: wrap;
 }
 
-.button-before,
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-prev,
 .button-next {
   margin: 8px;
 }
